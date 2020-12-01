@@ -3,6 +3,7 @@ from main import addition
 from main import soustraction
 from main import multiplication
 from main import division
+from main import arabe
 
 def test_romain_arabe():
     assert romain_arabe('I') == 1
@@ -24,6 +25,23 @@ def test_romain_arabe():
 
     assert romain_arabe('M') == 1000
 
+def test_arabe():
+    assert arabe(1) == 'I'
+    assert arabe(2) == 'II'
+
+    assert arabe(5) == 'V'
+
+    assert arabe(10) == 'X'
+
+    assert arabe(50) == 'L'
+    assert arabe(55) == 'LV'
+
+    assert arabe(100) == 'C'
+    assert arabe(150) == 'CL'
+
+    assert arabe(500) == 'D'
+
+    assert arabe(1000) == 'M'
 
 def test_addition():
     assert addition(1, 2) == 3

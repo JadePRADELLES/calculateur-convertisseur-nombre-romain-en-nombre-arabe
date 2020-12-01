@@ -7,7 +7,8 @@ def menu():
         nb = demande_romain()
         print('en chiffre arabe:', romain_arabe(nb))
     elif choix == 2:
-        calcul_romain()
+        res = calcul_romain()
+        print('le resultat en nombre romain:', arabe(res))
 
 
 def demande_romain():
@@ -33,19 +34,40 @@ def calcul_romain():
     if op == 1:
         a = romain_arabe(demande_romain())
         b = romain_arabe(demande_romain())
-        print(a, '+', b, '=', addition(a, b))
+        res = addition(a, b)
+        print(a, '+', b, '=', res)
+        return res
     elif op == 2:
         a = romain_arabe(demande_romain())
         b = romain_arabe(demande_romain())
-        print(a, '-', b, '=', soustraction(a, b))
+        res = soustraction(a, b)
+        print(a, '-', b, '=', res)
+        return res
     elif op == 3:
         a = romain_arabe(demande_romain())
         b = romain_arabe(demande_romain())
-        print(a, 'x', b, '=', multiplication(a, b))
+        res = multiplication(a, b)
+        print(a, 'x', b, '=', res)
+        return res
     elif op == 4:
         a = romain_arabe(demande_romain())
         b = romain_arabe(demande_romain())
-        print(a, '/', b, '=', division(a, b))
+        res = division(a, b)
+        print(a, '/', b, '=', res)
+        return res
+
+
+numlist = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'), (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'), (10, 'X'),
+           (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]
+
+
+def arabe(n):
+    res = ""
+    for k, v in numlist:
+        while n >= k:
+            n -= k
+            res += v
+    return res
 
 
 def addition(a, b):
